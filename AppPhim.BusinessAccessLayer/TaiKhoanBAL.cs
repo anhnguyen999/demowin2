@@ -17,11 +17,9 @@ namespace AppPhim.BusinessAccessLayer
             _taiKhoanDAL = new TaiKhoanDAL();
         }
 
-        public bool KiemTraDangNhap(string username, string password,out string error)
+        public bool KiemTraDangNhap(string username, string password, out string error)
         {
-            //Mã hóa mật khẩu trước khi kiểm tra
-            taiKhoan.PassWord = MD5Hash(taiKhoan.PassWord);
-            return _taiKhoanDAL.KiemTraDangNhap(taiKhoan, out error);
+            return _taiKhoanDAL.KiemTraDangNhap(username, MD5Hash(password), out error);
         }
 
         public string MD5Hash(string text)

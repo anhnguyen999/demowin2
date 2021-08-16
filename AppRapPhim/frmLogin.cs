@@ -30,16 +30,18 @@ namespace AppRapPhim
             if (userName == "" || password == "")
             {
                 MessageBox.Show("Vui lòng điền đầy đủ Tên đăng nhập & Mật khẩu!");
+
                 return;
             }
             string error;
             if (_taiKhoanBAL.KiemTraDangNhap(userName, password, out error))
             {
                 MessageBox.Show("đăng nhập thành công!");
+
             }
             else
             {
-                MessageBox.Show("Đăng nhập sai\n {0}", error);
+                MessageBox.Show("Đăng nhập sai\n"+ error);
             }
         }
 
