@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppPhim.BusinessAccessLayer;
 using AppPhim.DataAccessLayer;
+using AppRapPhim.Helpers;
 
 namespace AppRapPhim
 {
     public partial class frmLogin : Form
     {
         private readonly TaiKhoanBAL _taiKhoanBAL;
+        public event LoginSucessDelegate loginSucess;
 
         public frmLogin()
         {
@@ -37,7 +39,8 @@ namespace AppRapPhim
             if (_taiKhoanBAL.KiemTraDangNhap(userName, password, out error))
             {
                 MessageBox.Show("đăng nhập thành công!");
-
+                loginSucess();
+                this.Close();
             }
             else
             {

@@ -39,14 +39,33 @@ namespace AppRapPhim
             Form frm = this.MdiChildren.OfType<frmLogin>().FirstOrDefault();
             if (frm == null)
             {
-                frmLogin frmBanVe = new frmLogin();
-                frmBanVe.MdiParent = this;
-                frmBanVe.Show();
+                frmLogin frmLogin = new frmLogin();
+                frmLogin.MdiParent = this;
+                frmLogin.loginSucess += FrmLogin_loginSucess;
+                frmLogin.Show();
             }
             else
             {
                 frm.Activate();
             }
+        }
+
+        private void FrmLogin_loginSucess()
+        {
+            InitMenu(true);
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            InitMenu(false);
+        }
+
+        private void InitMenu(bool v)
+        {
+            menuDangXuat.Enabled = v;
+            menuDangNhap.Enabled = !v;
+            menuBaoCao.Enabled = v;
+            menuQuanLy.Enabled = v;
         }
     }
 }
