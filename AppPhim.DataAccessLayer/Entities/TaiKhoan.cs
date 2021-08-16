@@ -1,4 +1,4 @@
-namespace AppPhim.DataAccessLayer
+namespace AppPhim.DataAccessLayer.Entities
 {
     using System;
     using System.Collections.Generic;

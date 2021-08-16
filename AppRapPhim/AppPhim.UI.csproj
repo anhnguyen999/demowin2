@@ -74,6 +74,7 @@
     <Compile Include="frmBanVe.Designer.cs">
       <DependentUpon>frmBanVe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\LoginSucessDelegate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBanVe.resx">

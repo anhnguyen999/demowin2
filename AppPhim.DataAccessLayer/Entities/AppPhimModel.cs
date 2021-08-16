@@ -1,4 +1,4 @@
-namespace AppPhim.DataAccessLayer
+namespace AppPhim.DataAccessLayer.Entities
 {
     using System;
     using System.Data.Entity;
@@ -12,10 +12,18 @@ namespace AppPhim.DataAccessLayer
         {
         }
 
+        public virtual DbSet<ChiTietHoaDon> ChiTietHoaDon { get; set; }
+        public virtual DbSet<HoaDon> HoaDon { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<HoaDon>()
+                .HasMany(e => e.ChiTietHoaDon)
+                .WithOptional(e => e.HoaDon)
+                .HasForeignKey(e => e.MaHoaDon);
+
             modelBuilder.Entity<TaiKhoan>()
                 .Property(e => e.UserName)
                 .IsUnicode(false);

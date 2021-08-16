@@ -79,6 +79,7 @@
             this.menuDangXuat.Name = "menuDangXuat";
             this.menuDangXuat.Size = new System.Drawing.Size(364, 62);
             this.menuDangXuat.Text = "ĐĂNG XUẤT";
+            this.menuDangXuat.Click += new System.EventHandler(this.MenuDangXuat_Click);
             // 
             // menuQuanLy
             // 

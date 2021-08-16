@@ -67,5 +67,10 @@ namespace AppRapPhim
             menuBaoCao.Enabled = v;
             menuQuanLy.Enabled = v;
         }
+
+        private void MenuDangXuat_Click(object sender, EventArgs e)
+        {
+            InitMenu(false);
+        }
     }
 }
