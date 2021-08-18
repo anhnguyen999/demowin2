@@ -53,10 +53,19 @@ namespace AppRapPhim
                     btn.BackColor = Color.White;
                     btn.Click += Btn_Click;
                     pnGhe.Controls.Add(btn);
+                    KiemTraGhe(count, btn);
                     count++;
                     x += kc;
                 }
                 y += kc;
+            }
+        }
+
+        private void KiemTraGhe(int soGhe, Button btn)
+        {
+            if (_chiTietHoaDonBAL.GetChiTietHoaDons().Any(s=>s.SoGhe == soGhe))
+            {
+                btn.BackColor = Color.Yellow;
             }
         }
 

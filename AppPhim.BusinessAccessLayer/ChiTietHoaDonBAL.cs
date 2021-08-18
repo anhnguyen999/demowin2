@@ -16,6 +16,10 @@ namespace AppPhim.BusinessAccessLayer
             _chiTietHoaDonDAL = new ChiTietHoaDonDAL();
         }
 
+        public List<ChiTietHoaDon> GetChiTietHoaDons() {
+            return _chiTietHoaDonDAL.GetChiTietHoaDons();
+        }
+
         public bool LuuChiTietHoaDon(ChiTietHoaDon chiTietHoaDon, out string error)
         {
             return _chiTietHoaDonDAL.TaoMoiChiTietHoaDon(chiTietHoaDon, out error);

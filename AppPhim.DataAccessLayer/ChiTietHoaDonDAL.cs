@@ -21,6 +21,14 @@ namespace AppPhim.DataAccessLayer
             }
         }
 
+        public List<ChiTietHoaDon> GetChiTietHoaDons()
+        {
+            using (var dbcontext = new AppPhimModel())
+            {
+                return dbcontext.ChiTietHoaDon.ToList();
+            }
+        }
+
         public bool TaoMoiChiTietHoaDon(ChiTietHoaDon chiTietHoaDon, out string error)
         {
             error = string.Empty;
