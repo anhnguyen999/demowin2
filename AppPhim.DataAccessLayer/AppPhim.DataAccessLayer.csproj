@@ -55,6 +55,7 @@
     <Compile Include="Entities\HoaDon.cs" />
     <Compile Include="Entities\sysdiagrams.cs" />
     <Compile Include="Entities\TaiKhoan.cs" />
+    <Compile Include="HoaDonDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
   </ItemGroup>
@@ -62,5 +63,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

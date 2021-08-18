@@ -8,7 +8,7 @@ namespace AppPhim.DataAccessLayer.Entities
     public partial class AppPhimModel : DbContext
     {
         public AppPhimModel()
-            : base("name=AppPhimModel")
+            : base("name=AppPhimModel1")
         {
         }
 
