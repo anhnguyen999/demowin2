@@ -9,7 +9,6 @@ namespace AppPhim.DataAccessLayer.Entities
     [Table("ChiTietHoaDon")]
     public partial class ChiTietHoaDon
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         public int? MaHoaDon { get; set; }

@@ -14,7 +14,6 @@ namespace AppPhim.DataAccessLayer.Entities
 
         public virtual DbSet<ChiTietHoaDon> ChiTietHoaDon { get; set; }
         public virtual DbSet<HoaDon> HoaDon { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

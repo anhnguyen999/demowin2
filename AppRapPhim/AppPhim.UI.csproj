@@ -118,6 +118,10 @@
       <Project>{84d7f8ed-aecc-45d9-adfd-c481ce5a2d69}</Project>
       <Name>AppPhim.DataAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AppPhim.DTO\AppPhim.DTO.csproj">
+      <Project>{9D3A540C-73AF-4321-8EFF-57E0695A8E88}</Project>
+      <Name>AppPhim.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -36,18 +36,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoGhe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,11 +121,22 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dgvHoaDon);
             this.panel2.Location = new System.Drawing.Point(745, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(819, 238);
             this.panel2.TabIndex = 2;
+            // 
+            // dgvHoaDon
+            // 
+            this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHoaDon.Location = new System.Drawing.Point(0, 0);
+            this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.RowHeadersWidth = 62;
+            this.dgvHoaDon.RowTemplate.Height = 28;
+            this.dgvHoaDon.Size = new System.Drawing.Size(819, 238);
+            this.dgvHoaDon.TabIndex = 0;
             // 
             // panel3
             // 
@@ -141,27 +147,9 @@
             this.panel3.Size = new System.Drawing.Size(818, 255);
             this.panel3.TabIndex = 3;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.NgayHD,
-            this.SoTien});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(819, 238);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SoGhe,
-            this.GiaTien});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
@@ -169,41 +157,6 @@
             this.dataGridView2.RowTemplate.Height = 28;
             this.dataGridView2.Size = new System.Drawing.Size(818, 255);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Mã Hóa Đơn";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.Width = 150;
-            // 
-            // NgayHD
-            // 
-            this.NgayHD.HeaderText = "Ngày Mua";
-            this.NgayHD.MinimumWidth = 8;
-            this.NgayHD.Name = "NgayHD";
-            this.NgayHD.Width = 150;
-            // 
-            // SoTien
-            // 
-            this.SoTien.HeaderText = "Tổng Tiền";
-            this.SoTien.MinimumWidth = 8;
-            this.SoTien.Name = "SoTien";
-            this.SoTien.Width = 150;
-            // 
-            // SoGhe
-            // 
-            this.SoGhe.HeaderText = "Số Ghế";
-            this.SoGhe.MinimumWidth = 8;
-            this.SoGhe.Name = "SoGhe";
-            this.SoGhe.Width = 150;
-            // 
-            // GiaTien
-            // 
-            this.GiaTien.HeaderText = "Giá Tiền";
-            this.GiaTien.MinimumWidth = 8;
-            this.GiaTien.Name = "GiaTien";
-            this.GiaTien.Width = 150;
             // 
             // frmBanVe
             // 
@@ -224,8 +177,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -242,14 +195,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTien;
+        private System.Windows.Forms.DataGridView dgvHoaDon;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoGhe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaTien;
     }
 }
 
