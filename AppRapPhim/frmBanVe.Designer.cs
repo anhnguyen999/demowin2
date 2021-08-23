@@ -38,12 +38,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvChiTietHoaDon = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbbKhachHang = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,7 +57,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(974, 93);
+            this.panel1.Size = new System.Drawing.Size(727, 93);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -84,7 +86,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(275, 409);
+            this.label2.Location = new System.Drawing.Point(274, 494);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 36);
             this.label2.TabIndex = 2;
@@ -93,14 +95,14 @@
             // txtTongTien
             // 
             this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongTien.Location = new System.Drawing.Point(446, 409);
+            this.txtTongTien.Location = new System.Drawing.Point(445, 494);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(293, 41);
             this.txtTongTien.TabIndex = 3;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(446, 459);
+            this.button2.Location = new System.Drawing.Point(445, 544);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(129, 52);
             this.button2.TabIndex = 4;
@@ -110,7 +112,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(611, 459);
+            this.button3.Location = new System.Drawing.Point(610, 544);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 52);
             this.button3.TabIndex = 4;
@@ -137,36 +139,58 @@
             this.dgvHoaDon.RowTemplate.Height = 28;
             this.dgvHoaDon.Size = new System.Drawing.Size(819, 238);
             this.dgvHoaDon.TabIndex = 0;
+            this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvHoaDon_CellClick);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panel3.Controls.Add(this.dataGridView2);
+            this.panel3.Controls.Add(this.dgvChiTietHoaDon);
             this.panel3.Location = new System.Drawing.Point(746, 256);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(818, 255);
+            this.panel3.Size = new System.Drawing.Size(818, 340);
             this.panel3.TabIndex = 3;
             // 
-            // dataGridView2
+            // dgvChiTietHoaDon
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(818, 255);
-            this.dataGridView2.TabIndex = 0;
+            this.dgvChiTietHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiTietHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvChiTietHoaDon.Location = new System.Drawing.Point(0, 0);
+            this.dgvChiTietHoaDon.Name = "dgvChiTietHoaDon";
+            this.dgvChiTietHoaDon.RowHeadersWidth = 62;
+            this.dgvChiTietHoaDon.RowTemplate.Height = 28;
+            this.dgvChiTietHoaDon.Size = new System.Drawing.Size(818, 340);
+            this.dgvChiTietHoaDon.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(251, 428);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(183, 36);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Khách hàng:";
+            // 
+            // cbbKhachHang
+            // 
+            this.cbbKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbKhachHang.FormattingEnabled = true;
+            this.cbbKhachHang.Location = new System.Drawing.Point(445, 428);
+            this.cbbKhachHang.Name = "cbbKhachHang";
+            this.cbbKhachHang.Size = new System.Drawing.Size(293, 44);
+            this.cbbKhachHang.TabIndex = 5;
             // 
             // frmBanVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1576, 523);
+            this.ClientSize = new System.Drawing.Size(1576, 618);
+            this.Controls.Add(this.cbbKhachHang);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTongTien);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnGhe);
@@ -179,7 +203,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,7 +221,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvHoaDon;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvChiTietHoaDon;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbbKhachHang;
     }
 }
 

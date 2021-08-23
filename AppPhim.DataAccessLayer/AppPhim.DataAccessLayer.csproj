@@ -54,8 +54,11 @@
     <Compile Include="Entities\AppPhimModel.cs" />
     <Compile Include="Entities\ChiTietHoaDon.cs" />
     <Compile Include="Entities\HoaDon.cs" />
+    <Compile Include="Entities\KhachHang.cs" />
+    <Compile Include="Entities\sysdiagrams.cs" />
     <Compile Include="Entities\TaiKhoan.cs" />
     <Compile Include="HoaDonDAL.cs" />
+    <Compile Include="KhachHangDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
   </ItemGroup>

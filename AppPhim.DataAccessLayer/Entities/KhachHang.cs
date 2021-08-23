@@ -6,26 +6,24 @@ namespace AppPhim.DataAccessLayer.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("HoaDon")]
-    public partial class HoaDon
+    [Table("KhachHang")]
+    public partial class KhachHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HoaDon()
+        public KhachHang()
         {
-            ChiTietHoaDon = new HashSet<ChiTietHoaDon>();
+            HoaDon = new HashSet<HoaDon>();
         }
 
         public int Id { get; set; }
 
-        public DateTime? NgayMua { get; set; }
+        [StringLength(100)]
+        public string TenKhachHang { get; set; }
 
-        public double? TongTien { get; set; }
-
-        public int IdKhachHang { get; set; }
+        [StringLength(11)]
+        public string DienThoai { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDon { get; set; }
-
-        public virtual KhachHang KhachHang { get; set; }
+        public virtual ICollection<HoaDon> HoaDon { get; set; }
     }
 }

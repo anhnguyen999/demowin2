@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AppPhim.DataAccessLayer.Entities;
+using AppPhim.DTO;
 
 namespace AppPhim.DataAccessLayer
 {
@@ -13,11 +14,19 @@ namespace AppPhim.DataAccessLayer
         /// Lấy danh sách hóa đơn
         /// </summary>
         /// <returns>List HoaDon</returns>
-        public List<ChiTietHoaDon> GetChiTietHoaDonsTuHoaDon(int maHoaDon)
+        public List<ChiTietHoaDonDTO> GetChiTietHoaDonsByMaHoaDon(int maHoaDon)
         {
             using (var dbcontext = new AppPhimModel())
             {
-                return dbcontext.ChiTietHoaDon.Where(s => s.MaHoaDon == maHoaDon).ToList();
+                var chiTietHoaDonDTO = from b in dbcontext.ChiTietHoaDon
+                                       where b.MaHoaDon == maHoaDon
+                                        select new ChiTietHoaDonDTO()
+                                        {
+                                            MaChiTiet = b.Id,
+                                            SoGhe = (int)b.SoGhe,
+                                            GiaTien = (double)b.GiaTien
+                                        };
+                return chiTietHoaDonDTO.ToList();
             }
         }
 

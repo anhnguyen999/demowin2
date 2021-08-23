@@ -17,6 +17,7 @@ namespace AppRapPhim
     {
         private readonly HoaDonBAL _hoaDonBAL;
         private readonly ChiTietHoaDonBAL _chiTietHoaDonBAL;
+        private readonly KhachHangBAL _khachHangBAL;
         int soLuongGhe = 15;
 
         public frmBanVe()
@@ -24,12 +25,22 @@ namespace AppRapPhim
             InitializeComponent();
             _hoaDonBAL = new HoaDonBAL();
             _chiTietHoaDonBAL = new ChiTietHoaDonBAL();
+            _khachHangBAL = new KhachHangBAL();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
             KhoiTaoGhe();
             TaiDanhSachHoaDon();
+            TaiDanhSachKhachHang();
+        }
+
+        private void TaiDanhSachKhachHang()
+        {
+            cbbKhachHang.DisplayMember = "TenKhachHang";
+            cbbKhachHang.ValueMember = "MaKhachHang";
+            List<KhachHangDTO> danhSachKhachHang = _khachHangBAL.GetKhachHangs();
+            cbbKhachHang.DataSource = danhSachKhachHang;
         }
 
         private void KhoiTaoGhe()
@@ -109,6 +120,7 @@ namespace AppRapPhim
             HoaDon hoaDon = new HoaDon();
             hoaDon.NgayMua = DateTime.Now;
             hoaDon.TongTien = sum;
+            hoaDon.IdKhachHang = int.Parse(cbbKhachHang.SelectedValue.ToString());
             ChiTietHoaDon chiTietHoaDon;
             if (_hoaDonBAL.LuuHoaDon(hoaDon, out error))
             {
@@ -126,6 +138,8 @@ namespace AppRapPhim
                 }
                 MessageBox.Show("Lưu thành công hóa đơn");
                 TaiDanhSachHoaDon();
+                txtTongTien.Text = "0";
+                cbbKhachHang.SelectedIndex = -1;
             }
             else
             {
@@ -165,6 +179,14 @@ namespace AppRapPhim
                 btnGhe.ForeColor = Color.Black;
             }
             txtTongTien.Text = "0";
+        }
+
+        private void DgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            int maHoaDon = int.Parse(dgvHoaDon.Rows[rowIndex].Cells[0].Value.ToString());
+            List<ChiTietHoaDonDTO> chiTietHoaDonDTOs = _chiTietHoaDonBAL.GetChiTietHoaDonsByMaHoaDon(maHoaDon);
+            dgvChiTietHoaDon.DataSource = chiTietHoaDonDTOs;
         }
     }
 }
