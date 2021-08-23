@@ -72,5 +72,21 @@ namespace AppRapPhim
         {
             InitMenu(false);
         }
+
+        private void QUẢNLÝKHÁCHHÀNGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //kiểm tra sự tồn tại của frmBanVe trước khi tạo form mới
+            Form frm = this.MdiChildren.OfType<frmKhachHang>().FirstOrDefault();
+            if (frm == null)
+            {
+                frmKhachHang frmKhachHang = new frmKhachHang();
+                frmKhachHang.MdiParent = this;
+                frmKhachHang.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
     }
 }

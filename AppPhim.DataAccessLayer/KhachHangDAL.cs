@@ -24,5 +24,50 @@ namespace AppPhim.DataAccessLayer
             }
 
         }
+
+        public bool CapNhatKhachHang(KhachHang khachHang, out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                using (var dbcontext = new AppPhimModel())
+                {
+                    var khachHangUpdate = dbcontext.KhachHang.Find(khachHang.Id);
+                    if (khachHangUpdate == null)
+                    {
+                        error = "Khong tim thay khach hang";
+                        return false;
+                    }
+                    khachHangUpdate.TenKhachHang = khachHang.TenKhachHang;
+                    khachHangUpdate.DienThoai = khachHang.DienThoai;
+                    dbcontext.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+        }
+
+        public bool TaoMoiKhachHang(KhachHang khachHang, out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                using (var dbcontext = new AppPhimModel())
+                {
+                    dbcontext.KhachHang.Add(khachHang);
+                    dbcontext.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+        }
     }
 }

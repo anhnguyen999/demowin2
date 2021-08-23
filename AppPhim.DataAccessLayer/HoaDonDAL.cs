@@ -19,11 +19,12 @@ namespace AppPhim.DataAccessLayer
             using (var dbcontext = new AppPhimModel())
             {
                 var hoaDonDTO = from b in dbcontext.HoaDon
-                            select new HoaDonDTO()
-                            {
-                                MaHoaDon = b.Id,
-                                NgayMua = (DateTime)b.NgayMua,
-                                TongTien = (double)b.TongTien
+                                select new HoaDonDTO()
+                                {
+                                    MaHoaDon = b.Id,
+                                    NgayMua = (DateTime)b.NgayMua,
+                                    TongTien = (double)b.TongTien,
+                                    TenKhachHang = b.KhachHang.TenKhachHang
                             };
                 return hoaDonDTO.ToList();
             }
