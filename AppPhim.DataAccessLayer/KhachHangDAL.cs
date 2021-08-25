@@ -18,7 +18,8 @@ namespace AppPhim.DataAccessLayer
                                 select new KhachHangDTO()
                                 {
                                     MaKhachHang = b.Id,
-                                    TenKhachHang = b.TenKhachHang
+                                    TenKhachHang = b.TenKhachHang,
+                                    SoDienThoai = b.DienThoai
                                 };
                 return khachHangDTO.ToList();
             }
@@ -59,6 +60,30 @@ namespace AppPhim.DataAccessLayer
                 using (var dbcontext = new AppPhimModel())
                 {
                     dbcontext.KhachHang.Add(khachHang);
+                    dbcontext.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+        }
+        public bool XoaKhachHang(KhachHang khachHang, out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                using (var dbcontext = new AppPhimModel())
+                {
+                    var khachHangUpdate = dbcontext.KhachHang.Find(khachHang.Id);
+                    if (khachHangUpdate == null)
+                    {
+                        error = "Khong tim thay khach hang";
+                        return false;
+                    }
+                    dbcontext.KhachHang.Remove(khachHangUpdate);
                     dbcontext.SaveChanges();
                     return true;
                 }

@@ -54,7 +54,7 @@
             this.txtSDT.Location = new System.Drawing.Point(311, 139);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(424, 41);
-            this.txtSDT.TabIndex = 0;
+            this.txtSDT.TabIndex = 1;
             // 
             // btnThem
             // 
@@ -96,6 +96,7 @@
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.BtnXoa_Click);
             // 
             // btnSua
             // 
@@ -106,6 +107,7 @@
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.BtnSua_Click);
             // 
             // dgvDanhSachKH
             // 
@@ -116,6 +118,7 @@
             this.dgvDanhSachKH.RowTemplate.Height = 28;
             this.dgvDanhSachKH.Size = new System.Drawing.Size(610, 249);
             this.dgvDanhSachKH.TabIndex = 3;
+            this.dgvDanhSachKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDanhSachKH_CellClick);
             // 
             // label3
             // 

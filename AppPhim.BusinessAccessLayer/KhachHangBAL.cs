@@ -23,6 +23,27 @@ namespace AppPhim.BusinessAccessLayer
             return _khachHangDAL.GetKhachHangs();
         }
 
+        public bool XoaKhachHang(KhachHang khachHang, out string error)
+        {
+
+            try
+            {
+
+                if (!_khachHangDAL.XoaKhachHang(khachHang, out error))
+                {
+                    return false;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+            return true;
+        }
+
         public bool LuuKhachHang(KhachHang khachHang, out string error)
         {
             error = string.Empty;

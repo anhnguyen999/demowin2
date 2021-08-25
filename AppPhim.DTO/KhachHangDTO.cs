@@ -10,5 +10,6 @@ namespace AppPhim.DTO
     {
         public int MaKhachHang { get; set; }
         public string TenKhachHang { get; set; }
+        public string SoDienThoai { get; set; }
     }
 }

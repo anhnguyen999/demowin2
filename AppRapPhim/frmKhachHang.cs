@@ -16,6 +16,7 @@ namespace AppRapPhim
     public partial class frmKhachHang : Form
     {
         private readonly KhachHangBAL _khachHangBAL;
+        int maKhachHang;
         public frmKhachHang()
         {
             InitializeComponent();
@@ -45,10 +46,74 @@ namespace AppRapPhim
                 MessageBox.Show("luu thanh cong!");
                 TaiDanhSachKhachHang();
             }
-            else{
+            else
+            {
                 MessageBox.Show("luu khong thanh cong! " + error);
             }
 
+        }
+
+        private void DgvDanhSachKH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            maKhachHang = int.Parse(dgvDanhSachKH.Rows[rowIndex].Cells[0].Value.ToString());
+            string tenKhachHang = dgvDanhSachKH.Rows[rowIndex].Cells[1].Value.ToString();
+            string soDienThoai = dgvDanhSachKH.Rows[rowIndex].Cells[2].Value.ToString();
+
+            txtTenKhachHang.Text = tenKhachHang;
+            txtSDT.Text = soDienThoai;
+        }
+
+        private void BtnSua_Click(object sender, EventArgs e)
+        {
+            //sua thong tin khach hang
+            if (maKhachHang == 0)
+            {
+                MessageBox.Show("Vui long chon mot khach hang!");
+                return;
+            }
+            string error;
+            KhachHang khachHang = new KhachHang();
+            khachHang.TenKhachHang = txtTenKhachHang.Text;
+            khachHang.DienThoai = txtSDT.Text;
+            khachHang.Id = maKhachHang;
+            if (_khachHangBAL.LuuKhachHang(khachHang, out error))
+            {
+                MessageBox.Show("luu thanh cong!");
+                TaiDanhSachKhachHang();
+                txtTenKhachHang.Text = "";
+                txtSDT.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("luu khong thanh cong! " + error);
+            }
+        }
+
+        private void BtnXoa_Click(object sender, EventArgs e)
+        {
+            //sua thong tin khach hang
+            if (maKhachHang == 0)
+            {
+                MessageBox.Show("Vui long chon mot khach hang!");
+                return;
+            }
+            string error;
+            KhachHang khachHang = new KhachHang();
+            khachHang.TenKhachHang = txtTenKhachHang.Text;
+            khachHang.DienThoai = txtSDT.Text;
+            khachHang.Id = maKhachHang;
+            if (_khachHangBAL.XoaKhachHang(khachHang, out error))
+            {
+                MessageBox.Show("luu thanh cong!");
+                TaiDanhSachKhachHang();
+                txtTenKhachHang.Text = "";
+                txtSDT.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("luu khong thanh cong! " + error);
+            }
         }
     }
 }
