@@ -26,5 +26,10 @@ namespace AppPhim.BusinessAccessLayer
         {
             return _hoaDonDAL.TaoMoiHoaDon(hoaDon, out error);
         }
+
+        public bool KiemTraHoaDonByMaKhachHang(int maKhachHang)
+        {
+            return _hoaDonDAL.KiemTraHoaDonByMaKhachHang(maKhachHang);
+        }
     }
 }

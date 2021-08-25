@@ -25,16 +25,13 @@ namespace AppPhim.BusinessAccessLayer
 
         public bool XoaKhachHang(KhachHang khachHang, out string error)
         {
-
+           
             try
             {
-
                 if (!_khachHangDAL.XoaKhachHang(khachHang, out error))
                 {
                     return false;
                 }
-
-
             }
             catch (Exception ex)
             {

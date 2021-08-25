@@ -16,11 +16,13 @@ namespace AppRapPhim
     public partial class frmKhachHang : Form
     {
         private readonly KhachHangBAL _khachHangBAL;
+        private readonly HoaDonBAL _hoaDonBAL;
         int maKhachHang;
         public frmKhachHang()
         {
             InitializeComponent();
             _khachHangBAL = new KhachHangBAL();
+            _hoaDonBAL = new HoaDonBAL();
             this.Load += FrmKhachHang_Load;
         }
 
@@ -96,6 +98,11 @@ namespace AppRapPhim
             if (maKhachHang == 0)
             {
                 MessageBox.Show("Vui long chon mot khach hang!");
+                return;
+            }
+            if (_hoaDonBAL.KiemTraHoaDonByMaKhachHang(maKhachHang))
+            {
+                MessageBox.Show("Khong the xoa\nKhach hang da co hoa don!");
                 return;
             }
             string error;

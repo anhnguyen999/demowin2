@@ -31,6 +31,14 @@ namespace AppPhim.DataAccessLayer
             
         }
 
+        public bool KiemTraHoaDonByMaKhachHang(int maKhachHang)
+        {
+            using (var dbcontext = new AppPhimModel())
+            {
+                return dbcontext.HoaDon.Any(s => s.KhachHang.Id == maKhachHang);
+            }
+        }
+
         public bool TaoMoiHoaDon(HoaDon hoaDon, out string error)
         {
             error = string.Empty;
